@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "880067081434",
+    "firebase_url": "https://groupconcac.firebaseio.com",
+    "project_id": "groupconcac",
+    "storage_bucket": "groupconcac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880067081434:android:b65eec192c77d4a40661e3",
+        "android_client_info": {
+          "package_name": "com.example.groupconcac"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "880067081434-la8dsh63c0uk9fe9ittvt90sb84am3eb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.groupconcac",
+            "certificate_hash": "36dbc54ed056f5a530cf50d82607033bbe5192a9"
+          }
+        },
+        {
+          "client_id": "880067081434-0hhbf24c6cn6si9op098tb6fjqplduqa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYdVnadSkJrTpadjNOlR45hoAZuh1-jWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "880067081434-0hhbf24c6cn6si9op098tb6fjqplduqa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
