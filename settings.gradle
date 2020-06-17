@@ -60,6 +60,78 @@ def search_results(query):
 if __name__ == '__main__':
     app.run(Debug = True)
 -----
+{% extends "layout.html" %}
+{% block content %}
+     <div class="content-section">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto my-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Sign up</h5>
+                        <form method="POST" accept-charset="utf-8" action="">
+                            {{ form.hidden_tag() }}
+                            <fieldset class="form-group">
+                                <div class= "form-group">
+                                    {{ form.search.label(class="form-control-label") }}
+
+                                    {% if form.search.errors %}
+                                        {{ form.search(class="form-control form-control-lg is-invalid px-2 py-1") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.search.errors %}
+                                                <span>
+                                                    {{ error }}
+                                                </span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.search(class="form-control form-control-lg px-2 py-1") }}
+                                    {% endif %}
+                            </fieldset>
+
+
+                            <div class="form-group">
+                                {{ form.submit(class="btn btn-lg btn-primary btn-block text-uppercase")}}
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+
+-----
+from app import db
+
+
+class krp1(db.Model):
+    __tablename__ = 'krp1'
+
+    id = db.Column(db.String(20), nullable = False)
+    URI = db.Column(db.String(200), nullable = False)
+    graph = db.Column(db.String(200), nullable = False)
+    keyword_reference = db.Column(db.String(50), nullable = False)
+    belong_to_gene = db.Column(db.Integer, primary_key = True)
+
+class tcp2(db.Model):
+    __tablename__ = 'tcp2'
+
+    id = db.Column(db.String(50), nullable = False)
+    URI = db.Column(db.String(200), nullable = False)
+    graph = db.Column(db.String(200), nullable = False)
+    keyword_reference = db.Column(db.String(100), nullable = False)
+    belong_to_gene = db.Column(db.Integer, primary_key = True)
+    -----------------
+ from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+
+from wtforms.validators import DataRequired
+class SearchForm(FlaskForm):
+    search = StringField('search', [DataRequired()])
+    submit = SubmitField('Search', render_kw={'class': 'btn btn-success btn-block'})
+-----------
 {% extends "layout.html"%}
 {% block content %}
 
@@ -99,24 +171,4 @@ if __name__ == '__main__':
     </div>
 </div>
 {% endblock %}
------
-from app import db
 
-
-class krp1(db.Model):
-    __tablename__ = 'krp1'
-
-    id = db.Column(db.String(20), nullable = False)
-    URI = db.Column(db.String(200), nullable = False)
-    graph = db.Column(db.String(200), nullable = False)
-    keyword_reference = db.Column(db.String(50), nullable = False)
-    belong_to_gene = db.Column(db.Integer, primary_key = True)
-
-class tcp2(db.Model):
-    __tablename__ = 'tcp2'
-
-    id = db.Column(db.String(50), nullable = False)
-    URI = db.Column(db.String(200), nullable = False)
-    graph = db.Column(db.String(200), nullable = False)
-    keyword_reference = db.Column(db.String(100), nullable = False)
-    belong_to_gene = db.Column(db.Integer, primary_key = True)
